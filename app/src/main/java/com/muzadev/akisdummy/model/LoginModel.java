@@ -38,14 +38,4 @@ public class LoginModel {
     public String getStatus() {
         return status;
     }
-
-    @Override
-    public String toString() {
-        return
-                "LoginModel{" +
-                        "data = '" + data + '\'' +
-                        ",message = '" + message + '\'' +
-                        ",status = '" + status + '\'' +
-                        "}";
-    }
 }

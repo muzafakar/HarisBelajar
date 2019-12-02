@@ -1,55 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="3"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
-    <EditText
-        android:id="@+id/etUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Username" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <ProgressBar
-        android:id="@+id/pbLogin"
+    <Button
+        android:id="@+id/btnPelanggaran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Pelanggaran"
         android:visibility="gone"
         tools:visibility="visible" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSiswa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Siswa"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <Button
-        android:id="@+id/btnGetSiswa"
+        android:id="@+id/btnSurat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Siswa" />
-
+        android:text="Surat"
+        android:visibility="gone"
+        tools:visibility="visible" />
     <Button
-        android:id="@+id/btnShowData"
+        android:id="@+id/btnNilai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Data" />
+        android:text="Nilai"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
-
-    <TextView
-        android:id="@+id/tvData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <include layout="@layout/home" />
-</LinearLayout>
+</GridLayout>

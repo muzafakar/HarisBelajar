@@ -14,7 +14,7 @@ public class Guru {
     private String noHp;
 
     @SerializedName("level")
-    private String level;
+    private int level;
 
     @SerializedName("npsn")
     private String npsn;
@@ -67,11 +67,11 @@ public class Guru {
         return noHp;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(int level) {
         this.level = level;
     }
 
-    public String getLevel() {
+    public int getLevel() {
         return level;
     }
 

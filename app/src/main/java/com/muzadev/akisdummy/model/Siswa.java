@@ -1,18 +1,39 @@
 package com.muzadev.akisdummy.model;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class Siswa{
 
-	@SerializedName("siswa")
-	private List<SiswaItem> siswa;
+	@SerializedName("jk")
+	private String jk;
 
-	public void setSiswa(List<SiswaItem> siswa){
-		this.siswa = siswa;
+	@SerializedName("nisn")
+	private String nisn;
+
+	@SerializedName("nama_lengkap")
+	private String namaLengkap;
+
+	public void setJk(String jk){
+		this.jk = jk;
 	}
 
-	public List<SiswaItem> getSiswa(){
-		return siswa;
+	public String getJk(){
+		return jk;
+	}
+
+	public void setNisn(String nisn){
+		this.nisn = nisn;
+	}
+
+	public String getNisn(){
+		return nisn;
+	}
+
+	public void setNamaLengkap(String namaLengkap){
+		this.namaLengkap = namaLengkap;
+	}
+
+	public String getNamaLengkap(){
+		return namaLengkap;
 	}
 }
