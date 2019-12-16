@@ -44,7 +44,7 @@ public class SiswaActivity extends AppCompatActivity {
 //        Siswa parcelSiswa = (Siswa) getIntent().getParcelableExtra("ASDF");
         tbCommon.setSubtitle(namaGuru);
 
-        adpSiswa = new AdpSiswa(this);
+        adpSiswa = new AdpSiswa(this, true);
         rvSiswa = findViewById(R.id.rvSiswa);
         rvSiswa.addItemDecoration(new DividerItemDecoration(this, RecyclerView.VERTICAL));
         rvSiswa.setLayoutManager(new LinearLayoutManager(this));

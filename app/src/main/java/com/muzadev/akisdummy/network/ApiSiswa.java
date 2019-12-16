@@ -27,5 +27,10 @@ public interface ApiSiswa {
             @Query("pass") String password
     );
 
-
+    @GET("search_data_siswa.php")
+    Call<SiswaResponse> searchSiswaByName(
+            @Query("npsn") String npsn,
+            @Query("nama") String name,
+            @Query("pass") String password
+    );
 }

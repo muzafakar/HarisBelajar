@@ -1,17 +1,21 @@
 package com.muzadev.akisdummy.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.muzadev.akisdummy.R;
 import com.muzadev.akisdummy.model.Siswa;
+import com.muzadev.akisdummy.view.AllStudentsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +26,11 @@ public class AdpSiswa extends RecyclerView.Adapter<AdpSiswa.ViewHolder> {
     private Context context;
     private List<Siswa> dataSiswa;
     private List<Siswa> tempSiswa;
+    private boolean isForShowDetail;
 
-    public AdpSiswa(Context context) {
+    public AdpSiswa(Context context, boolean isForShowDetail) {
         this.context = context;
+        this.isForShowDetail = isForShowDetail;
         dataSiswa = new ArrayList<>();
         tempSiswa = new ArrayList<>();
     }
@@ -45,7 +51,7 @@ public class AdpSiswa extends RecyclerView.Adapter<AdpSiswa.ViewHolder> {
             Predicate<Siswa> siswaPredicate = new Predicate<Siswa>() {
                 @Override
                 public boolean test(Siswa siswa) {
-                    return siswa.getNamaLengkap().toLowerCase().contains(query.toLowerCase());
+                    return siswa.getNamaLengkap().toLowerCase().contains(query.toLowerCase()) || siswa.getNisn().contains(query);
                 }
             };
 
@@ -84,7 +90,7 @@ public class AdpSiswa extends RecyclerView.Adapter<AdpSiswa.ViewHolder> {
             tvStudentCount = itemView.findViewById(R.id.tvStudentGender);
         }
 
-        public void bindView(Siswa siswa) {
+        public void bindView(final Siswa siswa) {
             tvClassName.setText(siswa.getNamaLengkap());
             tvTeacherName.setText(siswa.getNisn());
 
@@ -96,10 +102,26 @@ public class AdpSiswa extends RecyclerView.Adapter<AdpSiswa.ViewHolder> {
 
             }
             tvStudentCount.setText(gender);
-
-          /*  *//*onCLick here*//*
-            Intent intent = new Intent(context, Kemana.class);
-            intent.putExtra("ASDF", siswa);*/
+            if (isForShowDetail) {
+                /*on clicknya beda*/
+                ((ConstraintLayout) tvClassName.getParent()).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(context, "ggwp", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                ((ConstraintLayout) tvClassName.getParent()).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.putExtra("NAMA", siswa.getNamaLengkap());
+                        intent.putExtra("NISN", siswa.getNisn());
+                        ((AllStudentsActivity) context).setResult(Activity.RESULT_OK, intent);
+                        ((AllStudentsActivity) context).finish();
+                    }
+                });
+            }
         }
     }
 }

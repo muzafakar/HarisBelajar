@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.PelanggaranActivity"></activity>
+        <activity android:name=".view.AllStudentsActivity"></activity>
+        <activity android:name=".view.PelanggaranActivity" />
         <activity android:name=".view.NilaiActivity" />
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.SiswaActivity" />
