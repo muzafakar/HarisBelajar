@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.muzadev.akisdummy.R;
+import com.muzadev.akisdummy.model.Pelanggaran;
 import com.muzadev.akisdummy.util.PrefManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         prefManager = new PrefManager(this);
         /*TODO check role*/
         int level = prefManager.getUser().getLevel();
-        roleChecker(level);
+//        roleChecker(level);
 
 
         btnSiswa.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +45,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnPelanggaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PelanggaranActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 

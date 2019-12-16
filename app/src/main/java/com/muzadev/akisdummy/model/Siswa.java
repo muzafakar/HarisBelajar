@@ -2,38 +2,38 @@ package com.muzadev.akisdummy.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Siswa{
+public class Siswa {
 
-	@SerializedName("jk")
-	private String jk;
+    @SerializedName("jk")
+    private String jk;
 
-	@SerializedName("nisn")
-	private String nisn;
+    @SerializedName("nisn")
+    private String nisn;
 
-	@SerializedName("nama_lengkap")
-	private String namaLengkap;
+    @SerializedName("nama_lengkap")
+    private String namaLengkap;
 
-	public void setJk(String jk){
-		this.jk = jk;
-	}
+    public void setJk(String jk) {
+        this.jk = jk;
+    }
 
-	public String getJk(){
-		return jk;
-	}
+    public String getJk() {
+        return jk;
+    }
 
-	public void setNisn(String nisn){
-		this.nisn = nisn;
-	}
+    public void setNisn(String nisn) {
+        this.nisn = nisn;
+    }
 
-	public String getNisn(){
-		return nisn;
-	}
+    public String getNisn() {
+        return nisn;
+    }
 
-	public void setNamaLengkap(String namaLengkap){
-		this.namaLengkap = namaLengkap;
-	}
+    public void setNamaLengkap(String namaLengkap) {
+        this.namaLengkap = namaLengkap;
+    }
 
-	public String getNamaLengkap(){
-		return namaLengkap;
-	}
+    public String getNamaLengkap() {
+        return namaLengkap;
+    }
 }

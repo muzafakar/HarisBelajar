@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pelanggaran"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:visibility="visible" />
 
     <Button
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Siswa"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:visibility="visible" />
 
     <Button
@@ -29,14 +29,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Surat"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:visibility="visible" />
     <Button
         android:id="@+id/btnNilai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nilai"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:visibility="visible" />
 
 </GridLayout>

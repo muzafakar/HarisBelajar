@@ -70,6 +70,7 @@ public class AdpKelas extends RecyclerView.Adapter<AdpKelas.ViewHolder> {
                 public void onClick(View v) {
                     Intent intent = new Intent(context, SiswaActivity.class);
                     intent.putExtra(AppParams.IDKELAS, kelas.getIdKelasJurusan());
+                    intent.putExtra(AppParams.TEACHER_NAME, kelas.getNama());
                     context.startActivity(intent);
                 }
             });

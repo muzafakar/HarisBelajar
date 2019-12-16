@@ -1,6 +1,7 @@
 package com.muzadev.akisdummy.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +15,45 @@ import com.muzadev.akisdummy.model.Siswa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class AdpSiswa extends RecyclerView.Adapter<AdpSiswa.ViewHolder> {
     private Context context;
     private List<Siswa> dataSiswa;
+    private List<Siswa> tempSiswa;
 
     public AdpSiswa(Context context) {
         this.context = context;
         dataSiswa = new ArrayList<>();
+        tempSiswa = new ArrayList<>();
     }
 
     public void setData(List<Siswa> data) {
         dataSiswa.clear();
         dataSiswa.addAll(data);
+        tempSiswa.clear();
+        tempSiswa.addAll(data);
+        notifyDataSetChanged();
+    }
+
+    public void searchData(final String query) {
+        if (query.length() == 0) {
+            dataSiswa.clear();
+            dataSiswa.addAll(tempSiswa);
+        } else {
+            Predicate<Siswa> siswaPredicate = new Predicate<Siswa>() {
+                @Override
+                public boolean test(Siswa siswa) {
+                    return siswa.getNamaLengkap().toLowerCase().contains(query.toLowerCase());
+                }
+            };
+
+            dataSiswa.clear();
+            List<Siswa> filtered = tempSiswa.stream().filter(siswaPredicate).collect(Collectors.<Siswa>toList());
+            dataSiswa.addAll(filtered);
+        }
+
         notifyDataSetChanged();
     }
 
@@ -69,6 +96,10 @@ public class AdpSiswa extends RecyclerView.Adapter<AdpSiswa.ViewHolder> {
 
             }
             tvStudentCount.setText(gender);
+
+          /*  *//*onCLick here*//*
+            Intent intent = new Intent(context, Kemana.class);
+            intent.putExtra("ASDF", siswa);*/
         }
     }
 }
